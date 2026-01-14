@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(s){s.dataset.zone='10461270',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+<script>(function(s){s.dataset.zone='10461234',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Breath & Wellness Challenge</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@400;600&family=Montserrat:wght@400;500;600&family=Nunito:wght@400;600;700&family=Outfit:wght@300;400;500&family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ----------------------------------
+           CSS VARIABLES & THEME ENGINE
+        ---------------------------------- */
+        :root {
+            /* Base Dimensions */
+            --header-height: 70px;
+            --nav-height: 80px;
+            --radius-l: 24px;
+            --radius-m: 16px;
+            --radius-s: 12px;
+            --space-container: 24px;
+
+            /* Default Theme: Calm Medical Green */
+            --primary: #00BFA5;
+            --primary-soft: rgba(0, 191, 165, 0.15);
+            --bg-color: #F7F9F9;
+            --surface: #FFFFFF;
+            --text-main: #263238;
+            --text-sub: #78909C;
+            --border-subtle: #ECEFF1;
+            --shadow-soft: 0 12px 40px -10px rgba(0, 191, 165, 0.15);
+            --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.03);
+            
+            --font-head: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --nav-bg: rgba(255, 255, 255, 0.9);
+            --nav-blur: 15px;
+            
+            --danger: #FF8A80;
+            --warning: #FFD54F;
+        }
+
+        /* Theme 2: Modern Blue Wellness */
+        body.theme-blue {
+            --primary: #4FA3D1;
+            --primary-soft: rgba(79, 163, 209, 0.15);
+            --bg-color: #F0F7FA;
+            --surface: #FFFFFF;
+            --text-main: #2C3E50;
+            --text-sub: #90A4AE;
+            --shadow-soft: 0 12px 40px -10px rgba(79, 163, 209, 0.2);
+            --font-head: 'Outfit', sans-serif;
+            --font-body: 'Roboto', sans-serif;
+        }
+
+        /* Theme 3: Gradient Wellness Premium */
+        body.theme-gradient {
+            --primary: #7C73E6;
+            --primary-soft: rgba(124, 115, 230, 0.12);
+            --bg-color: #FBFBFF;
+            --surface: #FFFFFF;
+            --text-main: #303030;
+            --text-sub: #9FA8DA;
+            --shadow-soft: 0 15px 40px -10px rgba(124, 115, 230, 0.25);
+            --font-head: 'Montserrat', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        /* Theme 4: Dark Calm Focus */
+        body.theme-dark {
+            --primary: #80CBC4;
+            --primary-soft: rgba(128, 203, 196, 0.1);
+            --bg-color: #121212;
+            --surface: #1E1E1E;
+            --text-main: #EEEEEE;
+            --text-sub: #B0BEC5;
+            --border-subtle: #333333;
+            --shadow-soft: 0 10px 30px rgba(0,0,0,0.5);
+            --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.2);
+            --nav-bg: rgba(30, 30, 30, 0.9);
+            --font-head: 'Manrope', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        /* Theme 5: Minimal Soft Pastel */
+        body.theme-pastel {
+            --primary: #9FA8DA;
+            --primary-soft: rgba(159, 168, 218, 0.2);
+            --bg-color: #FFFDF9;
+            --surface: #FFFFFF;
+            --text-main: #5C6BC0;
+            --text-sub: #9FA8DA;
+            --shadow-soft: 0 10px 25px -5px rgba(159, 168, 218, 0.3);
+            --font-head: 'Nunito', sans-serif;
+            --font-body: 'Nunito', sans-serif;
+        }
+
+        /* ----------------------------------
+           RESET & CORE UX
+        ---------------------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            font-variant-numeric: tabular-nums; /* Prevents timer jitter */
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transition: background-color 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.6s ease;
+        }
+
+        /* Smooth Typography */
+        h1, h2, h3, h4 {
+            font-family: var(--font-head);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+        
+        p {
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        /* ----------------------------------
+           LAYOUT & CONTAINER
+        ---------------------------------- */
+        .app-header {
+            height: var(--header-height);
+            padding: 0 var(--space-container);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: transparent;
+            z-index: 10;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            color: var(--primary);
+            font-size: 1.6rem;
+            filter: drop-shadow(0 2px 4px var(--primary-soft));
+        }
+
+        .streak-pill {
+            background: var(--surface);
+            padding: 6px 14px;
+            border-radius: 30px;
+            box-shadow: var(--shadow-card);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .main-content {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding: 10px var(--space-container) 120px var(--space-container); /* Bottom padding for nav */
+            scroll-behavior: smooth;
+        }
+
+        /* Hide scrollbar but keep functionality */
+        .main-content::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* ----------------------------------
+           CARDS & SURFACES
+        ---------------------------------- */
+        .card {
+            background: var(--surface);
+            border-radius: var(--radius-l);
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-subtle);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:active {
+            transform: scale(0.99);
+        }
+
+        .card-welcome {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--bg-color) 200%);
+            color: #fff; /* Force white text on primary bg */
+            border: none;
+        }
+        
+        /* Ensure text inside welcome card handles specific themes */
+        .card-welcome h2, .card-welcome p {
+             color: white; 
+             text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .action-card {
+            background: var(--surface);
+            padding: 20px;
+            border-radius: var(--radius-l);
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 1px solid var(--border-subtle);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            height: 140px;
+        }
+
+        .action-card:active {
+            transform: scale(0.96);
+        }
+
+        .action-icon-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-soft);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 4px;
+        }
+
+        /* ----------------------------------
+           BUTTONS & INTERACTIVE
+        ---------------------------------- */
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            height: 56px;
+            border-radius: 28px;
+            font-size: 1rem;
+            width: 100%;
+            font-weight: 600;
+            box-shadow: 0 8px 20px -6px var(--primary);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary:active {
+            transform: scale(0.97);
+            box-shadow: 0 4px 10px -4px var(--primary);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--border-subtle);
+            color: var(--text-sub);
+            height: 56px;
+            border-radius: 28px;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.2s;
+        }
+        
+        .btn-outline:active {
+            background: var(--bg-color);
+            color: var(--text-main);
+        }
+
+        .btn-danger {
+            background: var(--surface);
+            color: var(--danger);
+            border: 2px solid rgba(255, 138, 128, 0.2);
+            box-shadow: none;
+        }
+
+        /* ----------------------------------
+           NAVIGATION BAR
+        ---------------------------------- */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            background: var(--nav-bg);
+            backdrop-filter: blur(var(--nav-blur));
+            -webkit-backdrop-filter: blur(var(--nav-blur));
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 100;
+            padding-bottom: 10px; /* Safe area */
+            border-top: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-sub);
+            font-size: 0.75rem;
+            gap: 6px;
+            transition: all 0.3s ease;
+            width: 60px;
+            height: 100%;
+            position: relative;
+        }
+
+        .nav-item i {
+            font-size: 1.4rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item.active {
+            color: var(--primary);
+        }
+
+        .nav-item.active i {
+            transform: translateY(-2px);
+        }
+
+        .nav-item.active::after {
+            content: '';
+            width: 4px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 50%;
+            position: absolute;
+            bottom: 12px;
+        }
+
+        /* ----------------------------------
+           VIEWS & ANIMATIONS
+        ---------------------------------- */
+        .view-section {
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .view-section.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ----------------------------------
+           SPECIFIC FEATURES
+        ---------------------------------- */
+        
+        /* TIMER */
+        .timer-wrapper {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 40px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .timer-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 8px solid var(--surface);
+            box-shadow: var(--shadow-soft), inset 0 0 20px rgba(0,0,0,0.02);
+        }
+
+        .timer-text {
+            font-size: 4rem;
+            font-weight: 300;
+            color: var(--primary);
+            font-family: var(--font-body); /* Using monospaced variant if possible or standard */
+            z-index: 2;
+        }
+
+        /* BREATHING ANIMATION */
+        .calm-container {
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .breathe-circle {
+            width: 120px;
+            height: 120px;
+            background: var(--primary);
+            border-radius: 50%;
+            opacity: 0.8;
+            position: relative;
+            box-shadow: 0 0 0 0 rgba(var(--primary), 0.4);
+        }
+
+        .breathe-circle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200%;
+            height: 200%;
+            border-radius: 50%;
+            border: 1px solid var(--primary);
+            opacity: 0.1;
+        }
+
+        .breathe-circle.animating {
+            animation: breatheAnim 12s infinite cubic-bezier(0.4, 0.0, 0.2, 1);
+        }
+
+        @keyframes breatheAnim {
+            0% { transform: scale(1); opacity: 0.8; }
+            40% { transform: scale(2.2); opacity: 0.4; } /* Inhale end */
+            60% { transform: scale(2.2); opacity: 0.4; } /* Hold */
+            100% { transform: scale(1); opacity: 0.8; } /* Exhale end */
+        }
+
+        .instruction-text {
+            margin-top: 60px;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            font-weight: 500;
+            height: 30px;
+            text-align: center;
+            transition: opacity 0.3s;
+        }
+
+        /* PROGRESS BARS (Replaces Levels) */
+        .level-row {
+            margin-bottom: 20px;
+        }
+        
+        .level-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        .progress-track {
+            background: var(--border-subtle);
+            height: 10px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 1s ease-out;
+        }
+
+        /* STATS */
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        
+        .stat-box {
+            background: var(--surface);
+            padding: 20px;
+            border-radius: var(--radius-m);
+            text-align: center;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* TIPS LIST */
+        .tip-item {
+            display: flex;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        
+        .tip-item:last-child { border-bottom: none; }
+
+        .tip-icon {
+            color: var(--primary);
+            background: var(--primary-soft);
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* THEME SELECTOR */
+        .theme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .theme-option {
+            background: var(--surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-m);
+            padding: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .theme-option.active-theme {
+            border-color: var(--primary);
+            background: var(--primary-soft);
+        }
+
+        .theme-dot {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            margin: 0 auto 8px auto;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .theme-name {
+            font-size: 0.75rem;
+            color: var(--text-main);
+        }
+
+        /* ----------------------------------
+           MODALS (Glassmorphism + Scale)
+        ---------------------------------- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay[style*="display: flex"] {
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--surface);
+            padding: 32px 24px;
+            border-radius: 32px;
+            width: 100%;
+            max-width: 380px;
+            text-align: center;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+        }
+
+        .modal-overlay[style*="display: flex"] .modal-content {
+            transform: scale(1);
+        }
+
+        .disclaimer-box {
+            background: var(--bg-color);
+            padding: 16px;
+            border-radius: 12px;
+            text-align: left;
+            margin: 20px 0;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .disclaimer-text {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            line-height: 1.5;
+        }
+
+        .cipla-header {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .modal-result-icon {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            background: var(--primary-soft);
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .btn-group button {
+            flex: 1;
+        }
+
+    </style>
+</head>
+<body> <!-- Class added via JS -->
+
+    <!-- =========================
+         DISCLAIMER MODAL (MANDATORY)
+         ========================= -->
+    <div id="disclaimerModal" class="modal-overlay" style="display: flex;">
+        <div class="modal-content">
+            <div class="cipla-header">Cipla Limited</div>
+            <h3>Health Awareness</h3>
+            <div class="disclaimer-box">
+                <div class="disclaimer-text">
+                    <strong>Disclaimer:</strong> Brought to you by Cipla Limited for information and awareness purposes.<br><br>
+                    <strong>NOT A SUBSTITUTE FOR MEDICAL ADVICE.</strong><br><br>
+                    Please consult a healthcare professional before starting any treatment.
+                </div>
+            </div>
+            <button class="btn-primary" onclick="acceptDisclaimer()">I Understand</button>
+        </div>
+    </div>
+
+    <!-- =========================
+         TEST WARNING MODAL
+         ========================= -->
+    <div id="testWarningModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-result-icon" style="color: var(--warning); background: rgba(255, 213, 79, 0.2);">
+                <i class="fa-solid fa-shield-heart"></i>
+            </div>
+            <h3>Safety First</h3>
+            <p style="color: var(--text-sub); margin: 12px 0; font-size: 0.95rem;">
+                If you feel dizzy or uncomfortable, stop immediately. This is for awareness, not competition.
+            </p>
+            <div class="btn-group">
+                <button class="btn-outline" onclick="closeModal('testWarningModal')">Cancel</button>
+                <button class="btn-primary" onclick="proceedToTest()">Start</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================
+         RESULT MODAL
+         ========================= -->
+    <div id="resultModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-result-icon">
+                <i class="fa-solid fa-lungs"></i>
+            </div>
+            <h2 id="resultTitle" style="color: var(--primary);">Well Done</h2>
+            
+            <div style="margin: 20px 0;">
+                <h1 id="resultTime" style="font-size: 3.5rem; font-weight: 300; line-height: 1;">00s</h1>
+                <p id="resultCategory" style="color: var(--text-main); font-weight: 500; margin-top: 8px;">Average</p>
+            </div>
+            
+            <p id="resultMessage" style="font-size: 0.9rem; color: var(--text-sub);">
+                Lung health is vital. Keep practicing!
+            </p>
+            
+            <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 24px;">
+                <button class="btn-primary" onclick="shareResult()">
+                    <i class="fa-brands fa-whatsapp"></i> Share Awareness
+                </button>
+                <button class="btn-outline" onclick="closeModal('resultModal')" style="border: none; color: var(--text-sub);">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- =========================
+         APP HEADER
+         ========================= -->
+    <header class="app-header">
+        <div class="logo-area">
+            <i class="fa-solid fa-heart-pulse logo-icon"></i>
+            <div>
+                <h4 style="font-size: 1rem; color: var(--text-main);">Breath &</h4>
+                <span style="font-size: 0.75rem; color: var(--text-sub); font-weight: 500;">Wellness Awareness</span>
+            </div>
+        </div>
+        <div id="streakDisplay" class="streak-pill">
+            <i class="fa-solid fa-fire" style="color: var(--warning);"></i> 
+            <span id="streakCount">0</span>
+        </div>
+    </header>
+
+    <!-- =========================
+         MAIN CONTENT AREA
+         ========================= -->
+    <main class="main-content">
+        
+        <!-- VIEW: HOME -->
+        <section id="view-home" class="view-section active">
+            <div class="card card-welcome">
+                <h2>Health Awareness</h2>
+                <p style="margin-top: 8px; opacity: 0.95;">Monitor your lung health and practice mindful breathing daily.</p>
+            </div>
+
+            <h3 style="margin: 32px 0 16px 0; font-size: 1.1rem;">Start Activity</h3>
+            <div class="grid-2">
+                <div class="action-card" onclick="navTo('view-challenge')">
+                    <div class="action-icon-circle">
+                        <i class="fa-solid fa-stopwatch"></i>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 0.95rem;">Breath Test</h4>
+                        <span style="font-size: 0.75rem; color: var(--text-sub);">Check Capacity</span>
+                    </div>
+                </div>
+                <div class="action-card" onclick="navTo('view-calm')">
+                    <div class="action-icon-circle" style="background: rgba(100, 181, 246, 0.15); color: #64B5F6;">
+                        <i class="fa-solid fa-wind"></i>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 0.95rem;">Relaxation</h4>
+                        <span style="font-size: 0.75rem; color: var(--text-sub);">Guided Breathe</span>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="margin: 32px 0 16px 0; font-size: 1.1rem;">Daily Insight</h3>
+            <div class="card" style="display: flex; gap: 16px; align-items: flex-start;">
+                <i class="fa-solid fa-lightbulb" style="color: var(--warning); font-size: 1.2rem; margin-top: 2px;"></i>
+                <p id="dailyTipText" style="font-size: 0.9rem; color: var(--text-sub);">
+                    Deep breathing exercises can help increase lung capacity and reduce stress levels.
+                </p>
+            </div>
+        </section>
+
+        <!-- VIEW: CHALLENGE (BREATH TEST) -->
+        <section id="view-challenge" class="view-section">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <h2>Breath Holding</h2>
+                <p style="color: var(--text-sub); font-size: 0.9rem;">Relax, inhale deep, and hold.</p>
+            </div>
+
+            <div class="timer-wrapper">
+                <div class="timer-ring"></div>
+                <div id="timerDisplay" class="timer-text">00.0</div>
+            </div>
+
+            <div style="max-width: 280px; margin: 0 auto;">
+                <button id="btnStartTest" class="btn-primary" onclick="initiateTest()">
+                    <i class="fa-solid fa-play" style="font-size: 0.8rem;"></i> Tap to Start
+                </button>
+                <button id="btnStopTest" class="btn-primary btn-danger" style="display: none;" onclick="stopTest()">
+                    <i class="fa-solid fa-stop" style="font-size: 0.8rem;"></i> Stop Timer
+                </button>
+            </div>
+
+            <!-- Fun Levels (Redesigned as Capacity Indicators) -->
+            <div class="card" style="margin-top: 40px; padding: 20px;">
+                <h4 style="margin-bottom: 20px; font-size: 0.95rem;">Capacity Milestones</h4>
+                
+                <div class="level-row">
+                    <div class="level-header">
+                        <span>Beginner</span>
+                        <span>15s</span>
+                    </div>
+                    <div class="progress-track">
+                        <div id="lvl1" class="progress-fill"></div>
+                    </div>
+                </div>
+
+                <div class="level-row" style="margin-bottom: 0;">
+                    <div class="level-header">
+                        <span>Advanced</span>
+                        <span>40s</span>
+                    </div>
+                    <div class="progress-track">
+                        <div id="lvl2" class="progress-fill"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW: CALM (GUIDED BREATHING) -->
+        <section id="view-calm" class="view-section">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <h2>Guided Calm</h2>
+                <p style="color: var(--text-sub);">Follow the rhythm to destress.</p>
+            </div>
+            
+            <div class="calm-container">
+                <div id="breatheCircle" class="breathe-circle"></div>
+                <div id="breatheInstruction" class="instruction-text">Ready</div>
+            </div>
+            
+            <div style="padding: 0 40px;">
+                <button id="btnCalmToggle" class="btn-primary" onclick="toggleCalmBreathing()">
+                    Start Session
+                </button>
+            </div>
+        </section>
+
+        <!-- VIEW: PROGRESS/STATS -->
+        <section id="view-stats" class="view-section">
+            <h2 style="margin-bottom: 20px;">Your History</h2>
+            <div class="stat-grid">
+                <div class="stat-box">
+                    <div class="stat-value" id="statBestTime">0s</div>
+                    <div class="stat-label">Best Time</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="statTotalAttempts">0</div>
+                    <div class="stat-label">Attempts</div>
+                </div>
+            </div>
+
+            <h3 style="margin: 32px 0 16px 0; font-size: 1.1rem;">Lung Health Tips</h3>
+            <div class="card" style="padding: 0 20px;">
+                <div class="tip-item">
+                    <div class="tip-icon">
+                        <i class="fa-solid fa-ban-smoking"></i>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 0.95rem; margin-bottom: 4px;">Avoid Toxins</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-sub);">Minimize exposure to smoke, dust, and industrial chemicals.</p>
+                    </div>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-icon" style="color: #64B5F6; background: rgba(100, 181, 246, 0.15);">
+                        <i class="fa-solid fa-person-running"></i>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 0.95rem; margin-bottom: 4px;">Stay Active</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-sub);">Cardio exercise helps improve lung efficiency over time.</p>
+                    </div>
+                </div>
+                <div class="tip-item">
+                    <div class="tip-icon" style="color: #81C784; background: rgba(129, 199, 132, 0.15);">
+                        <i class="fa-solid fa-glass-water"></i>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 0.95rem; margin-bottom: 4px;">Hydration</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-sub);">Water helps keep the mucosal linings of airways thin.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VIEW: SETTINGS -->
+        <section id="view-settings" class="view-section">
+            <h2 style="margin-bottom: 20px;">Preferences</h2>
+            
+            <div class="card">
+                <h4 style="margin-bottom: 16px; font-size: 0.95rem;">App Theme</h4>
+                <div class="theme-grid">
+                    <div class="theme-option" onclick="setTheme('theme-medical')">
+                        <div class="theme-dot" style="background: #00BFA5;"></div>
+                        <span class="theme-name">Medical</span>
+                    </div>
+                    <div class="theme-option" onclick="setTheme('theme-blue')">
+                        <div class="theme-dot" style="background: #4FA3D1;"></div>
+                        <span class="theme-name">Blue</span>
+                    </div>
+                    <div class="theme-option" onclick="setTheme('theme-gradient')">
+                        <div class="theme-dot" style="background: linear-gradient(135deg, #7C73E6, #B39DDB);"></div>
+                        <span class="theme-name">Gradient</span>
+                    </div>
+                    <div class="theme-option" onclick="setTheme('theme-dark')">
+                        <div class="theme-dot" style="background: #1E1E1E; border-color: #555;"></div>
+                        <span class="theme-name">Dark</span>
+                    </div>
+                    <div class="theme-option" onclick="setTheme('theme-pastel')">
+                        <div class="theme-dot" style="background: #9FA8DA;"></div>
+                        <span class="theme-name">Pastel</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top: 16px;">
+                <h4 style="margin-bottom: 16px; font-size: 0.95rem;">Data Management</h4>
+                <button class="btn-outline" style="border-color: var(--danger); color: var(--danger);" onclick="resetData()">
+                    Reset All Progress
+                </button>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px; color: var(--text-sub); font-size: 0.75rem;">
+                <p>Breath & Wellness Challenge v1.0</p>
+                <p style="margin-top: 4px;">Health Awareness Initiative</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =========================
+         BOTTOM NAVIGATION
+         ========================= -->
+    <nav class="bottom-nav">
+        <div class="nav-item active" onclick="navTo('view-home')" id="nav-home">
+            <i class="fa-solid fa-house-medical"></i>
+            <span>Home</span>
+        </div>
+        <div class="nav-item" onclick="navTo('view-challenge')" id="nav-challenge">
+            <i class="fa-solid fa-stopwatch"></i>
+            <span>Test</span>
+        </div>
+        <div class="nav-item" onclick="navTo('view-calm')" id="nav-calm">
+            <i class="fa-solid fa-spa"></i>
+            <span>Calm</span>
+        </div>
+        <div class="nav-item" onclick="navTo('view-stats')" id="nav-stats">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Stats</span>
+        </div>
+        <div class="nav-item" onclick="navTo('view-settings')" id="nav-settings">
+            <i class="fa-solid fa-sliders"></i>
+            <span>Set</span>
+        </div>
+    </nav>
+
+    <!-- =========================
+         JAVASCRIPT LOGIC
+         (Unchanged Logic, Updated UI Selectors)
+         ========================= -->
+    <script>
+        /* --- STATE & DATA --- */
+        const APP_STORAGE_KEY = 'breath_wellness_v1';
+        let appData = {
+            theme: 'theme-medical', // default
+            bestTime: 0,
+            totalAttempts: 0,
+            streak: 0,
+            lastVisit: null
+        };
+        let timerInterval;
+        let startTime;
+        let isBreathingActive = false;
+        let breathingTimeout;
+
+        /* --- INITIALIZATION --- */
+        document.addEventListener('DOMContentLoaded', () => {
+            loadData();
+            applyTheme(appData.theme);
+            checkStreak();
+            updateUI();
+            
+            const tips = [
+                "Diaphragmatic breathing strengthens the diaphragm.",
+                "Pursed lip breathing slows down your breathing rate.",
+                "Stay hydrated to keep mucosal linings thin.",
+                "Good posture allows lungs to expand fully.",
+                "Indoor plants can help improve air quality."
+            ];
+            document.getElementById('dailyTipText').innerText = tips[Math.floor(Math.random() * tips.length)];
+        });
+
+        /* --- NAVIGATION --- */
+        function navTo(viewId) {
+            document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+            document.getElementById(viewId).classList.add('active');
+            
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            const navMap = {
+                'view-home': 'nav-home',
+                'view-challenge': 'nav-challenge',
+                'view-calm': 'nav-calm',
+                'view-stats': 'nav-stats',
+                'view-settings': 'nav-settings'
+            };
+            document.getElementById(navMap[viewId]).classList.add('active');
+
+            if(viewId !== 'view-challenge') resetTimerUI();
+            if(viewId !== 'view-calm') stopCalmBreathing();
+        }
+
+        /* --- MODALS --- */
+        function acceptDisclaimer() {
+            document.getElementById('disclaimerModal').style.display = 'none';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        /* --- BREATH TEST LOGIC --- */
+        function initiateTest() {
+            document.getElementById('testWarningModal').style.display = 'flex';
+        }
+
+        function proceedToTest() {
+            closeModal('testWarningModal');
+            startTimer();
+        }
+
+        function startTimer() {
+            document.getElementById('btnStartTest').style.display = 'none';
+            document.getElementById('btnStopTest').style.display = 'flex'; // Flex for centering content
+            
+            startTime = Date.now();
+            timerInterval = setInterval(() => {
+                const elapsed = (Date.now() - startTime) / 1000;
+                document.getElementById('timerDisplay').innerText = elapsed.toFixed(1);
+            }, 100);
+        }
+
+        function stopTest() {
+            clearInterval(timerInterval);
+            const finalTime = parseFloat(document.getElementById('timerDisplay').innerText);
+            
+            document.getElementById('btnStartTest').style.display = 'flex';
+            document.getElementById('btnStopTest').style.display = 'none';
+
+            processResult(finalTime);
+        }
+
+        function resetTimerUI() {
+            clearInterval(timerInterval);
+            document.getElementById('timerDisplay').innerText = "00.0";
+            document.getElementById('btnStartTest').style.display = 'flex';
+            document.getElementById('btnStopTest').style.display = 'none';
+        }
+
+        function processResult(time) {
+            appData.totalAttempts++;
+            if(time > appData.bestTime) {
+                appData.bestTime = time;
+            }
+            saveData();
+            updateUI();
+
+            let category = "Beginner";
+            let msg = "Good start! Practice daily to improve.";
+            
+            if(time > 15 && time <= 40) {
+                category = "Average";
+                msg = "Doing well! Your lungs are getting stronger.";
+            } else if (time > 40) {
+                category = "Advanced";
+                msg = "Impressive capacity! Keep maintaining it.";
+            }
+
+            document.getElementById('resultTime').innerText = time.toFixed(1) + "s";
+            document.getElementById('resultCategory').innerText = category;
+            document.getElementById('resultMessage').innerText = msg;
+            document.getElementById('resultModal').style.display = 'flex';
+        }
+
+        function updateLevelsUI() {
+            const best = appData.bestTime;
+            
+            let lvl1Pct = (best / 15) * 100;
+            if(lvl1Pct > 100) lvl1Pct = 100;
+            document.getElementById('lvl1').style.width = lvl1Pct + '%';
+
+            let lvl2Pct = (best / 40) * 100;
+            if(lvl2Pct > 100) lvl2Pct = 100;
+            document.getElementById('lvl2').style.width = lvl2Pct + '%';
+        }
+
+        /* --- CALM BREATHING --- */
+        function toggleCalmBreathing() {
+            if(isBreathingActive) {
+                stopCalmBreathing();
+            } else {
+                startCalmBreathing();
+            }
+        }
+
+        function startCalmBreathing() {
+            isBreathingActive = true;
+            document.getElementById('btnCalmToggle').innerText = "Stop Session";
+            const circle = document.getElementById('breatheCircle');
+            const text = document.getElementById('breatheInstruction');
+            
+            circle.classList.add('animating');
+            
+            const runCycle = () => {
+                if(!isBreathingActive) return;
+                text.innerText = "Inhale...";
+                setTimeout(() => {
+                    if(!isBreathingActive) return;
+                    text.innerText = "Hold...";
+                }, 4800); 
+                setTimeout(() => {
+                    if(!isBreathingActive) return;
+                    text.innerText = "Exhale...";
+                }, 7200); 
+            };
+
+            runCycle();
+            breathingTimeout = setInterval(runCycle, 12000);
+        }
+
+        function stopCalmBreathing() {
+            isBreathingActive = false;
+            document.getElementById('btnCalmToggle').innerText = "Start Session";
+            document.getElementById('breatheCircle').classList.remove('animating');
+            document.getElementById('breatheInstruction').innerText = "Ready";
+            clearInterval(breathingTimeout);
+        }
+
+        /* --- STORAGE & STREAKS --- */
+        function checkStreak() {
+            const today = new Date().toDateString();
+            
+            if(appData.lastVisit !== today) {
+                const yesterday = new Date();
+                yesterday.setDate(yesterday.getDate() - 1);
+                
+                if(appData.lastVisit === yesterday.toDateString()) {
+                    appData.streak++;
+                } else {
+                    appData.streak = 1;
+                }
+                appData.lastVisit = today;
+                saveData();
+            }
+        }
+
+        function saveData() {
+            localStorage.setItem(APP_STORAGE_KEY, JSON.stringify(appData));
+        }
+
+        function loadData() {
+            const saved = localStorage.getItem(APP_STORAGE_KEY);
+            if(saved) {
+                appData = JSON.parse(saved);
+            }
+        }
+
+        function resetData() {
+            if(confirm("Are you sure you want to reset all progress?")) {
+                appData.bestTime = 0;
+                appData.totalAttempts = 0;
+                appData.streak = 1;
+                saveData();
+                updateUI();
+            }
+        }
+
+        function updateUI() {
+            document.getElementById('streakCount').innerText = appData.streak;
+            document.getElementById('statBestTime').innerText = appData.bestTime.toFixed(1) + 's';
+            document.getElementById('statTotalAttempts').innerText = appData.totalAttempts;
+            updateLevelsUI();
+        }
+
+        /* --- THEME SYSTEM --- */
+        function setTheme(themeName) {
+            appData.theme = themeName;
+            applyTheme(themeName);
+            saveData();
+        }
+
+        function applyTheme(themeName) {
+            document.body.className = '';
+            document.body.classList.add(themeName);
+
+            document.querySelectorAll('.theme-option').forEach(btn => {
+                btn.classList.remove('active-theme');
+                if(btn.onclick.toString().includes(themeName)) {
+                    btn.classList.add('active-theme');
+                }
+            });
+        }
+
+        /* --- SHARING --- */
+        function shareResult() {
+            const text = `I held my breath for ${document.getElementById('resultTime').innerText} on the Breath & Wellness App! 🫁\n\nTake the challenge and check your lung health awareness. #HealthAwareness`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Breath Awareness',
+                    text: text,
+                    url: window.location.href
+                }).catch(console.error);
+            } else {
+                navigator.clipboard.writeText(text).then(() => {
+                    alert("Copied to clipboard!");
+                });
+            }
+        }
+    </script>
+</body>
+</html>
